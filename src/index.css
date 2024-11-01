@@ -1,0 +1,14 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --navbar-height: 70px;
+  --footer-height: 70px;
+  --bg-color: #00796b;
+  background: #021526;
+}
+
+
+
