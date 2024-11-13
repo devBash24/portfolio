@@ -1,0 +1,39 @@
+{
+    "hero":{
+        "title":"Bash John",
+        "role":"Full Stack Web Developer",
+        "subtitle":"I am a full stack web developer with a passion for creating beautiful and functional websites.",
+        "cta":"View Projects",
+        "cta2":"Contact Me"
+    },
+    "about":{
+        "title":"About Me",
+        "subtitle":"I am a full stack web developer with a passion for creating beautiful and functional websites.",
+        "description":"I am a full stack web developer with a passion for creating beautiful and functional websites.My main focus these days is building accessible user interfaces for our customers at BLi. I most enjoy building software in the s need to know to build a web app with the Spotify API.",
+        "education":"Education",
+        "skills":"Skills"
+    },
+    "project":{
+        "title":"Projects"
+    },
+    "contact":{
+        "title":"Contact Me",
+        "email":"Email",
+        "message":"Message",
+        "submit":"Submit"
+    },
+    "footer":{
+        "copyright":"Copyright © 2023 Bash John. All rights reserved.",
+        "description":"Frontend Developer | Passionate about making life easier with technology.",
+        "navigation":{
+            "home":"Home",
+            "about":"About",
+            "projects":"Projects",
+            "contact":"Contact"
+        }
+
+
+    }
+
+
+}
