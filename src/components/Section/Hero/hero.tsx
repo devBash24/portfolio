@@ -22,7 +22,7 @@ export const Hero = () => {
       {/* Background Image with Gradient Overlay */}
       <div
         style={{
-          backgroundImage: "url('/public/assets/background image.webp')",
+          backgroundImage: "url('/assets/background image.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
