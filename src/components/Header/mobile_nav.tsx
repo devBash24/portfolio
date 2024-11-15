@@ -5,7 +5,7 @@ import navItems from "../../lib/navItems";
 import { onSectionChange } from "../../lib/section_change";
 
 const navItemStyle =
-  "font-bold text-white cursor-pointer py-4 text-center text-lg lg:text-xl hover:text-secondary-400 transition duration-300";
+  "font-bold text-white cursor-pointer py-4 text-center text-lg lg:text-xl hover:text-accent transition duration-300";
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,12 +33,12 @@ const MobileMenu = () => {
         animate={isOpen ? "open" : "closed"}
         variants={menuVariants}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed top-0 right-0 w-3/4 h-full bg-primary-800/80 backdrop-blur-lg flex flex-col items-center justify-center md:hidden z-40"
+        className="fixed top-0 right-0 w-3/4 h-full bg-background bg-opacity-90 backdrop-blur-lg flex flex-col items-center justify-center md:hidden z-40"
       >
         <ul className="flex flex-col gap-6 text-center font-oswald w-full">
           {navItems.map((item, index) => (
             <motion.li
-              whileHover={{ scale: 1.1, color: "#facc15" }} // Adds hover effect with scaling and accent color
+              whileHover={{ scale: 1.1, color: "#1E90FF", textShadow: "0px 0px 8px rgba(255, 255, 255, 0.5)" }} // Adds hover effect with scaling and accent color
               key={index}
               onClick={() => {
                 onSectionChange(item.id);

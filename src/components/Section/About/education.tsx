@@ -3,7 +3,7 @@ import { IoLocationOutline } from "react-icons/io5";
 const Education = () => {
     return (
         <div className="education-section p-6 text-white">
-            <h3 className="text-2xl text-center font-bold mb-8">Education</h3>
+            <h3 className="text-3xl text-center font-bold mb-8">Education</h3>
             <div className="flex flex-col gap-10">
 
                 {/** Bachelor's Degree Entry */}
@@ -14,8 +14,8 @@ const Education = () => {
                         transition={{ duration: 0.5 }}
                         className="left-side w-1/3 text-right"
                     >
-                        <p className="text-subheading font-semibold">2024</p>
-                        <p className="text-md font-medium">Bachelor's Degree</p>
+                        <p className="text-2xl font-semibold">2024</p>
+                        <p className="text-lg font-medium">Bachelor's Degree</p>
                     </motion.div>
                     
                     <motion.div
