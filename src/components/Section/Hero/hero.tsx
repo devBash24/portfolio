@@ -92,7 +92,7 @@ const Hero = () => {
         
       </motion.div>
       <motion.div variants={fadeInVariant} custom={5} className="h-screen  absolute bottom-0 aspect-square left-3/4 transform -translate-x-1/2 translate-z-0 overflow-hidden">
-          <img src="/public/assets/self-image.png" alt="hero" className="h-full w-full object-cover" />
+          <img src="/assets/self-image.png" alt="hero" className="h-full w-full object-cover" />
         </motion.div>
     </div>
   );
