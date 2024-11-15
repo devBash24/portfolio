@@ -2,7 +2,7 @@ import Footer from "./components/Footer/footer"
 import Header from "./components/Header/header"
 import { About } from "./components/Section/About/about"
 import { Contact } from "./components/Section/Contact/contact"
-import { Hero } from "./components/Section/Hero/hero"
+import Hero from "./components/Section/Hero/hero"
 import { Project } from "./components/Section/Project/project"
 
 function App() {
