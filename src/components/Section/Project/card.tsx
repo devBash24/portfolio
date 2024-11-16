@@ -29,12 +29,11 @@ const Stack = ({ stack }: { stack: string }) => {
 };
 
 const ProjectCard = ({ project }: { project: any }) => {
-  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [overlay, setOverlay] = useState(false);
 
-  const toggleOverlay = () => {
-    setIsOverlayOpen(!isOverlayOpen);
-  };
+  const toggleOverlayOpen = () => setOverlay(true);
 
+  const toggleOverlayClose = () => setOverlay(false);
   // Truncate description to 50 characters
   const truncatedDescription =
     project.description.length > 50
@@ -50,7 +49,8 @@ const ProjectCard = ({ project }: { project: any }) => {
       style={{
         boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
       }}
-      onClick={toggleOverlay}
+      onClick={toggleOverlayOpen}
+      onDoubleClick={toggleOverlayClose}
     >
       <motion.div 
         className='glow-effect absolute inset-0 rounded-lg'
@@ -114,7 +114,7 @@ const ProjectCard = ({ project }: { project: any }) => {
 
       {/* Overlay */}
       <AnimatePresence>
-        {isOverlayOpen && (
+        {overlay && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -122,7 +122,7 @@ const ProjectCard = ({ project }: { project: any }) => {
             transition={{ duration: 0.4, ease: 'easeOut' }}
             className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg"
           >
-            <OverlayCard project={project} toggleOverlay={toggleOverlay} />
+            <OverlayCard project={project} toggleOverlayClose={toggleOverlayClose} />
           </motion.div>
         )}
       </AnimatePresence>

@@ -2,14 +2,14 @@
     "hero":{
         "title":"Bash John",
         "role":"Full Stack Web Developer",
-        "subtitle":"I am a full stack web developer with a passion for creating beautiful and functional websites.",
+        "subtitle":"I am a passionate and dedicated full-stack web developer from the Caribbean. I specialize in crafting intuitive, high-performing websites that not only look great but also drive results. Let's build something amazing together.",
         "cta":"View Projects",
         "cta2":"Contact Me"
     },
     "about":{
         "title":"About Me",
-        "subtitle":"I am a full stack web developer with a passion for creating beautiful and functional websites.",
-        "description":"I am a full stack web developer with a passion for creating beautiful and functional websites.My main focus these days is building accessible user interfaces for our customers at BLi. I most enjoy building software in the s need to know to build a web app with the Spotify API.",
+        "subtitle":"I am a professional full-stack web developer with a Bachelor's degree earned in China, bringing a global perspective to every project I undertake. My Caribbean roots fuel my creativity and resilience, while my international education has equipped me with cutting-edge technical skills and cultural adaptability.",
+        "description":"Passionate about web development, I thrive on transforming complex ideas into seamless, user-friendly websites. My diligent and hardworking nature ensures that every project I deliver is polished, efficient, and aligned with your goals. Whether you need a dynamic application or a sleek portfolio, I am dedicated to making your vision a reality.",
         "education":"Education",
         "skills":"Skills"
     },
@@ -18,6 +18,7 @@
     },
     "contact":{
         "title":"Contact Me",
+        "subtitle": "Ready to bring your ideas to life? Whether you're looking for a reliable developer to enhance your online presence or need an innovative solution for your business, I'd love to hear from you.",
         "email":"Email",
         "message":"Message",
         "submit":"Submit"
@@ -31,9 +32,6 @@
             "projects":"Projects",
             "contact":"Contact"
         }
-
-
     }
-
 
 }

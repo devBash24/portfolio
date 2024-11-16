@@ -15,9 +15,10 @@ const formVariant = {
   },
 };
 
+const socialStyle = "hover:text-accent hover:scale-110  transition-colors duration-200";
+
 const ContactForm = () => {
   const { formData, handleChange, handleSubmit, emailState, message } = useEmail();
-
   return (
     <motion.form
       onSubmit={handleSubmit}
@@ -90,7 +91,7 @@ const ContactForm = () => {
       <motion.button
         type="submit"
         variants={formVariant}
-        className="w-full py-3 bg-primary-500 text-white rounded-md font-semibold text-center hover:bg-primary-600 transition-all duration-300"
+        className="w-full py-3 bg-accent text-white rounded-md font-semibold text-center hover:bg-opacity-80 transition-all duration-300"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         disabled={emailState === 'sending'}
@@ -109,7 +110,7 @@ const ContactForm = () => {
           href="https://linkedin.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary-50 hover:text-secondary-300 transition-colors duration-200"
+          className={socialStyle}
         >
           <FaLinkedin size={24} />
         </a>
@@ -117,7 +118,7 @@ const ContactForm = () => {
           href="https://github.com/devBash24"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary-50 hover:text-secondary-300 transition-colors duration-200"
+          className={socialStyle}
         >
           <FaGithub size={24} />
         </a>
@@ -125,7 +126,7 @@ const ContactForm = () => {
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary-50 hover:text-secondary-300 transition-colors duration-200"
+          className={socialStyle}
         >
           <FaInstagram size={24} />
         </a>
