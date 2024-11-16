@@ -1,6 +1,6 @@
 
 import emailjs from "@emailjs/browser";
-import { IEmail } from "../hooks/useEmail";
+import {IContactForm } from "../hooks/useEmail";
 
 // Environment variables
 const publicKey = process.env.REACT_APP_APIKEY;
@@ -8,7 +8,7 @@ const templateId = process.env.REACT_APP_TEMPLATE_ID;
 const serviceId = process.env.REACT_APP_SERVICE_ID;
 
 
-const sendEmail = async (formData: IEmail) => {
+const sendEmail = async (formData: IContactForm) => {
   if (!serviceId || !publicKey || !templateId) {
     throw new Error("Email service is not configured correctly.");
   }
