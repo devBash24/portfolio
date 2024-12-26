@@ -71,7 +71,7 @@ const Hero = () => {
           <motion.button
             variants={fadeInVariant}
             custom={3}
-            className="bg-accent hover:bg-opacity-80 text-white font-bold py-2 px-4 text-lg rounded shadow-cta transition-colors"
+            className="bg-accent hover:bg-opacity-80 text-white font-bold py-2 px-4 text- rounded shadow-cta transition-colors"
             onClick={() => window.open("https://github.com/devBash24")}
           >
             {t("hero.cta")}
