@@ -25,6 +25,14 @@ export const projects: IProject[] = [
         url: 'https://rengong-ai.vercel.app/',
         git: 'https://github.com/devBash24/rengong-ai',
         stack: ['Nextjs', 'Gemini Ai', 'Supabase'],
+    },
+    {
+        title: 'Thrilltopia',
+        description: 'A website for a theme park',
+        img: '/assets/thrilltopia.png',
+        url: 'https://thrilltopia.vercel.app/',
+        git: 'https://github.com/devBash24/thrilltopia',
+        stack: ['Nextjs', 'Tailwind', 'framer-motion'],
     }
     
 ]
