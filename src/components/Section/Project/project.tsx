@@ -1,28 +1,49 @@
 import { projects } from "../../../lib/portfolio_projects";
 import ProjectCard from "./card";
+import { motion } from "framer-motion";
 
 export const Project = () => {
   return (
     <section
       id="project"
-      className="w-full font-oswald min-h-screen flex flex-col justify-center items-center px-5 py-8 bg-darkGray"
+      className="w-full min-h-screen bg-background py-20 px-4 lg:px-8"
     >
-      <h1 className="text-5xl lg:text-6xl text-center text-white text-bold p-2">
-        {"Project"} <span className="text-secondary-500 text-heading">.</span>
-      </h1>
-      <p className="text-base text-center mt-8 text-white">
-        Few Projects that I've worked on
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12  mt-8">
-        {projects.length === 1 ? (
-          <div className="col-span-full">
-            <ProjectCard key={0} project={projects[0]} />
-          </div>
-        ) : (
-          projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))
-        )}
+      <div className="container mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="font-oswald text-4xl md:text-5xl font-bold text-white mb-4">
+            My <span className="text-accent">Projects</span>
+          </h2>
+          <div className="w-20 h-1 bg-accent mx-auto rounded-full" />
+          <p className="text-lightGray mt-6 max-w-2xl mx-auto">
+            Explore my latest projects showcasing my skills in web development and design
+          </p>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"
+        >
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

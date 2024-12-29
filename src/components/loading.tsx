@@ -1,63 +1,35 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-
-const letterVariant = {
-    hidden: { scale: 1 },
-    visible: { 
-      scale: [1, 1.5, 1], // Scale up then down
-      transition: {
-        duration: 1.5,
-        ease: 'easeInOut',
-        repeat: Infinity, // Loop the animation
-        repeatDelay: 0.2, // Delay between repeats
-      },
-    },
-  };
-  
-  const AnimatedName = ({ name }:{name:string}) => {
-    
-    return (
-      <div className="flex justify-center items-center text-center font-bold text-3xl sm:text-4xl md:text-5xl text-primary-50">
-        {name.split('').map((letter, index) => (
-          <motion.span
-            key={index}
-            className="text-white m-2"
-            variants={letterVariant}
-            initial="hidden"
-            animate="visible"
-            transition={{
-              delay: index * 0.1, // Stagger the animation of each letter
-            }}
-          >
-            {letter}
-          </motion.span>
-        ))}
-      </div>
-    );
-  };
-  
-// Assume Bash is a custom component. You can replace it with any animation or logo you prefer.
-const Bash = () => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 1 }}
-    className="font-bold text-4xl md:text-6xl"
-  >
-    <AnimatedName name='</Bash John>' />
-  </motion.div>
-);
-
-const LoadingOverlay = () => {
+const LoadingScreen = () => {
   return (
-    <div style={{ zIndex: 9999 }} className="fixed top-0 left-0 w-full h-full bg-background bg-opacity-90 flex justify-center items-center">
-      {/* Overlay background */}
-      <div className="flex flex-col justify-center items-center text-center">
-        {/* Centered <Bash/> */}
-        <Bash />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-background"
+    >
+      <div className="text-center">
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8"
+        >
+          {/* Your logo or loading animation here */}
+          <h1 className="text-4xl font-oswald font-bold text-white">
+            Bash <span className="text-accent">John</span>
+          </h1>
+        </motion.div>
+
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "100%" }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="w-48 h-1 bg-accent mx-auto rounded-full"
+        />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-export default LoadingOverlay;
+export default LoadingScreen;

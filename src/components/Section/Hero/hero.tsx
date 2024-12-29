@@ -1,102 +1,95 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { onSectionChange } from "../../../lib/section_change";
-  // Animation variants for staggered fade-in effect
-  const fadeInVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.3, duration: 0.6, ease: "easeOut" },
-    }),
-  };
+
 const Hero = () => {
   const { t } = useTranslation("global");
-
-
-
   return (
-    <div
-      id="hero"
-      className="relative font-oswald h-screen flex flex-col justify-center items-start pl-6 md:pl-12 overflow-hidden"
-    >
-      {/* Background Image with Gradient Overlay */}
-      <div
-        style={{
-          backgroundImage: "url('/assets/background image.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-        }}
-        className="absolute inset-0"
-      >
-        {/* Gradient Overlay for blending */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-75"></div>
-      </div>
+    <section id="hero" className="relative w-screen h-screen bg-darkDark overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-darkDark opacity-90" />
 
-      {/* Content Section */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 space-y-4 px-6 md:px-32 lg:px-48"
-      >
-        <motion.h1
-          variants={fadeInVariant}
-          custom={0}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
-        >
-          {t("hero.title")}
-        </motion.h1>
-        
-        <motion.h2
-          variants={fadeInVariant}
-          custom={1}
-          className="text-3xl md:text-4xl font-semibold text-lightGray"
-        >
-          {t("hero.role")}
-        </motion.h2>
-
-        <motion.p
-          variants={fadeInVariant}
-          custom={2}
-          className="text-base md:text-lg lg:text-xl text-gray-400 max-w-xl"
-        >
-          {t("hero.subtitle")}
-        </motion.p>
-
-
-        {/* Buttons */}
-        <div className="flex gap-4 mt-8 py-">
-          <motion.button
-            variants={fadeInVariant}
-            custom={3}
-            className="bg-accent hover:bg-opacity-80 text-white font-bold py-2 px-4 text- rounded shadow-cta transition-colors"
-            onClick={() => window.open("https://github.com/devBash24")}
+      {/* Main content */}
+      <div className="container relative z-10 mx-auto h-full px-4 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center justify-center h-full gap-12 lg:gap-16">
+          {/* Left side - Text content */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-1/2 space-y-6"
           >
-            {t("hero.cta")}
-          </motion.button>
-          
-          <motion.button
-            variants={fadeInVariant}
-            custom={4}
-            className="bg-accent hover:bg-opacity-80 text-white font-bold py-2 px-4 text-lg rounded shadow-cta transition-colors"
-            onClick={() =>
-              onSectionChange("contact")
-            }
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block px-4 py-2 rounded-full bg-surface text-accent font-roboto text-sm"
+            >
+              {t("hero.greeting")}
+            </motion.span>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="font-oswald text-5xl lg:text-7xl font-bold text-white leading-tight"
+            >
+              <span className="block text-accent">
+                {t("hero.title")}
+                <span className="text-accent block text-2xl lg:text-3xl my-2">{t("hero.role")}</span>
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-lg text-lightGray max-w-xl font-roboto"
+            >
+              {t("hero.subtitle" )}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="flex gap-4 pt-4"
+            >
+              <a
+                href="#projects"
+                className="bg-accent hover:bg-opacity-90 text-white px-8 py-3 rounded-lg shadow-cta transition-all duration-300 font-roboto"
+              >
+                {t("hero.cta")}
+              </a>
+              <a
+                href="#contact"
+                className="bg-surface hover:bg-muted text-white px-8 py-3 rounded-lg transition-all duration-300 font-roboto"
+              >
+                {t("hero.cta2")}
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Right side - Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-1/2 relative"
           >
-            {t("hero.cta2")}
-          </motion.button>
-          
+            <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] mx-auto">
+              <div className="absolute inset-0 bg-accent/10 rounded-2xl transform rotate-6" />
+              <div className="absolute inset-0 bg-surface rounded-2xl transform -rotate-3" />
+              <img
+                src="/assets/self-image.png"
+                alt={t("hero.imageAlt", "Professional portrait")}
+                className="relative z-10 w-full h-full object-cover rounded-2xl bg-surface"
+              />
+            </div>
+          </motion.div>
         </div>
-        
-      </motion.div>
-      <motion.div variants={fadeInVariant} custom={5} className="h-screen  absolute bottom-0 aspect-square left-3/4 transform -translate-x-1/2 translate-z-0 overflow-hidden">
-          <img src="/assets/self-image.png" alt="hero" className="h-full w-full object-cover" />
-        </motion.div>
-    </div>
+      </div>
+    </section>
   );
 };
 
-
-export default Hero
+export default Hero;

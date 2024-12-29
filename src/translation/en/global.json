@@ -1,15 +1,24 @@
 {
+    "personal":{
+        "name":"Bash John",
+        "email":"devbash98@gmail.com",
+        "github":"https://github.com/devbash98",
+        "linkedin":"https://www.linkedin.com/in/bash-john-dev/",
+        "location":"Caribbean",
+        "experience":"2"
+    },
     "hero":{
         "title":"Bash John",
+        "greeting":"Welcome to my portfolio",
         "role":"Full Stack Web Developer",
-        "subtitle":"I am a passionate and dedicated full-stack web developer from the Caribbean. I specialize in crafting intuitive, high-performing websites that not only look great but also drive results. Let's build something amazing together.",
+        "subtitle":"Crafting digital experiences with modern web technologies. Turning ideas into elegant, functional solutions.",
         "cta":"View Projects",
         "cta2":"Contact Me"
     },
     "about":{
         "title":"About Me",
-        "subtitle":"I am a professional full-stack web developer with a Bachelor's degree earned in China, bringing a global perspective to every project I undertake. My Caribbean roots fuel my creativity and resilience, while my international education has equipped me with cutting-edge technical skills and cultural adaptability.",
-        "description":"Passionate about web development, I thrive on transforming complex ideas into seamless, user-friendly websites. My diligent and hardworking nature ensures that every project I deliver is polished, efficient, and aligned with your goals. Whether you need a dynamic application or a sleek portfolio, I am dedicated to making your vision a reality.",
+        "subtitle":"Who am I?",
+        "description":"I am a passionate and dedicated full-stack web developer from the Caribbean. I specialize in crafting intuitive, high-performing websites that not only look great but also drive results. Let's build something amazing together.",
         "education":"Education",
         "skills":"Skills"
     },

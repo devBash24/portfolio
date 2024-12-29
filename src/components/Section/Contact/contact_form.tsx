@@ -15,124 +15,133 @@ const formVariant = {
   },
 };
 
-const socialStyle = "hover:text-accent hover:scale-110  transition-colors duration-200";
 
 const ContactForm = () => {
   const { formData, handleChange, handleSubmit, emailState, message } = useEmail();
+  
   return (
     <motion.form
       onSubmit={handleSubmit}
-      className="w-full max-w-lg text-white flex flex-col gap-6 bg-darkGray p-8 rounded-2xl mt-8 shadow-lg text-primary-50"
+      className="bg-surface p-8 rounded-2xl shadow-lg"
       initial="hidden"
       animate="visible"
     >
-      <motion.h2
-        variants={formVariant}
-        className="text-center text-heading font-bold text-2xl sm:text-3xl md:text-4xl"
-      >
-        Get in touch
-      </motion.h2>
-
       {message && (
-        <p
-          className={`${
-            emailState === 'error' ? 'text-red-500' : 'text-green-500'
-          } text-sm mt-2 text-center`}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={`p-4 rounded-lg mb-6 ${
+            emailState === 'error' 
+              ? 'bg-red-500/10 text-red-500' 
+              : 'bg-green-500/10 text-green-500'
+          }`}
         >
           {message}
-        </p>
+        </motion.div>
       )}
 
-      <motion.div variants={formVariant} className="flex flex-col">
-        <label htmlFor="name" className="text-body font-semibold">
-          Full Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          className="px-4 py-2 mt-1 border-2  border-primary-300 rounded-md text-primary-100 bg-muted focus:outline-none focus:border-accent/30"
-          placeholder="Enter your full name"
-        />
-      </motion.div>
+      <div className="space-y-6">
+        <motion.div variants={formVariant} className="space-y-2">
+          <label htmlFor="name" className="block text-white font-medium">
+            Full Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-lg bg-muted border-2 border-transparent 
+                     focus:border-accent/30 focus:outline-none transition-colors
+                     text-white placeholder-lightGray/50"
+            placeholder="John Doe"
+          />
+        </motion.div>
 
-      <motion.div variants={formVariant} className="flex flex-col">
-        <label htmlFor="email" className="text-body font-semibold">
-          Email
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className="px-4 py-2 mt-1 border-2 border-white/ rounded-md text-primary-100 bg-muted focus:outline-none focus:border-accent/30"
-          placeholder="Enter your email"
-        />
-      </motion.div>
+        <motion.div variants={formVariant} className="space-y-2">
+          <label htmlFor="email" className="block text-white font-medium">
+            Email Address
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-lg bg-muted border-2 border-transparent 
+                     focus:border-accent/30 focus:outline-none transition-colors
+                     text-white placeholder-lightGray/50"
+            placeholder="john@example.com"
+          />
+        </motion.div>
 
-      <motion.div variants={formVariant} className="flex flex-col">
-        <label htmlFor="message" className="text-body font-semibold">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          rows={5}
-          className="px-4 py-2 mt-1 border-2 border-primary-300 rounded-md text-surface focus:outline-none"
-          placeholder="Enter your message"
-        />
-      </motion.div>
+        <motion.div variants={formVariant} className="space-y-2">
+          <label htmlFor="message" className="block text-white font-medium">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            rows={5}
+            className="w-full px-4 py-3 rounded-lg bg-muted border-2 border-transparent 
+                     focus:border-accent/30 focus:outline-none transition-colors
+                     text-white placeholder-lightGray/50 resize-none"
+            placeholder="Your message here..."
+          />
+        </motion.div>
 
-      <motion.button
-        type="submit"
-        variants={formVariant}
-        className="w-full py-3 bg-accent text-white rounded-md font-semibold text-center hover:bg-opacity-80 transition-all duration-300"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        disabled={emailState === 'sending'}
-      >
-        Send Message
-      </motion.button>
-
-      {/* Social Media Links */}
-      <motion.div
-        className="flex justify-center gap-6 mt-6"
-        initial="hidden"
-        animate="visible"
-        variants={formVariant}
-      >
-        <a
-          href="https://linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={socialStyle}
+        <motion.button
+          type="submit"
+          variants={formVariant}
+          className="w-full py-4 bg-accent text-white rounded-lg font-medium
+                   hover:bg-opacity-90 transition-all duration-300
+                   disabled:opacity-50 disabled:cursor-not-allowed"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          disabled={emailState === 'sending'}
         >
-          <FaLinkedin size={24} />
-        </a>
-        <a
-          href="https://github.com/devBash24"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={socialStyle}
+          {emailState === 'sending' ? 'Sending...' : 'Send Message'}
+        </motion.button>
+
+        {/* Social Links */}
+        <motion.div
+          variants={formVariant}
+          className="flex justify-center gap-6 pt-6 border-t border-muted"
         >
-          <FaGithub size={24} />
-        </a>
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={socialStyle}
-        >
-          <FaInstagram size={24} />
-        </a>
-      </motion.div>
+          {socialLinks.map((social, index) => (
+            <motion.a
+              key={index}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lightGray hover:text-accent transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {social.icon}
+            </motion.a>
+          ))}
+        </motion.div>
+      </div>
     </motion.form>
   );
 };
+
+const socialLinks = [
+  {
+    url: "https://linkedin.com",
+    icon: <FaLinkedin size={24} />
+  },
+  {
+    url: "https://github.com/devBash24",
+    icon: <FaGithub size={24} />
+  },
+  {
+    url: "https://instagram.com",
+    icon: <FaInstagram size={24} />
+  }
+];
 
 export default ContactForm;

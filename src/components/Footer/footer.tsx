@@ -1,4 +1,4 @@
-import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaHeart } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import navItems, { INavItems } from '../../lib/navItems';
 import { onSectionChange } from '../../lib/section_change';
@@ -7,77 +7,141 @@ import { useTranslation } from 'react-i18next';
 const Footer = () => {
   const {t} = useTranslation("global");
 
+  const socialLinks = [
+    {
+      icon: <FaLinkedin size={20} />,
+      href: "https://linkedin.com/in/bash-john-220a87308",
+      label: "LinkedIn"
+    },
+    {
+      icon: <FaGithub size={20} />,
+      href: "https://github.com/devBash24",
+      label: "GitHub"
+    },
+    // {
+    //   icon: <FaTwitter size={20} />,
+    //   href: "https://twitter.com/your-profile",
+    //   label: "Twitter"
+    // },
+    {
+      icon: <FaEnvelope size={20} />,
+      href: "mailto:devbash98@gmail.com",
+      label: "Email"
+    }
+  ];
+
   return (
-    <footer className="bg-darkDark text-white py-10 px-6">
-      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center space-y-8 lg:space-y-0">
-        
-        {/* Logo and Description */}
-        <div className="text-center lg:text-left space-y-3">
-          <h2 className="text-xl lg:text-2xl font-semibold text-secondary-500">Bash John</h2>
-          <p className="text-xs lg:text-sm text-gray-400">
-            {t("footer.description")}
+    <footer className="bg-darkDark text-white py-12 px-4 lg:px-8">
+      <div className="container mx-auto">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-8">
+          {/* Brand Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-4"
+          >
+            <h2 className="text-2xl font-oswald font-bold text-white">
+              Bash <span className="text-accent">John</span>
+            </h2>
+            <p className="text-lightGray text-sm leading-relaxed">
+              {t("footer.description")}
+            </p>
+          </motion.div>
+
+          {/* Quick Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="space-y-4"
+          >
+            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
+            <ul className="space-y-2">
+              {navItems.map((item: INavItems, index: number) => (
+                <li key={index}>
+                  <button
+                    onClick={() => onSectionChange(item.id)}
+                    className="text-lightGray hover:text-accent transition-colors duration-300"
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-4"
+          >
+            <h3 className="text-lg font-semibold text-white">Contact</h3>
+            <ul className="space-y-2 text-lightGray">
+              <li>Email: devbash98@gmail.com</li>
+              <li>Phone: +1 784 498-1544</li>
+              <li>Timezone: UTC-4</li>
+            </ul>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-4"
+          >
+            <h3 className="text-lg font-semibold text-white">Follow Me</h3>
+            <div className="flex gap-4">
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="p-2 bg-surface hover:bg-accent rounded-lg text-lightGray hover:text-white transition-all duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Divider */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="w-full h-[1px] bg-muted my-8"
+        />
+
+        {/* Copyright */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center text-sm text-lightGray"
+        >
+          <p className="flex items-center justify-center gap-1">
+            © {new Date().getFullYear()} {t("footer.copyright")} 
+            <span className="inline-flex items-center">
+              Made with <FaHeart className="text-accent mx-1" size={14} /> by Bash John
+            </span>
           </p>
-        </div>
-        
-        {/* Navigation Links */}
-        <nav className="flex flex-wrap justify-center space-x-6 text-gray-400 text-xs lg:text-sm">
-          {navItems.map((item: INavItems, index: number) => (
-            <li
-              onClick={() => onSectionChange(item.id)}
-              key={index}
-              className="hover:text-secondary-400 transition duration-300 list-none hover:cursor-pointer"
-            >
-              {item.title}
-            </li>
-          ))}
-        </nav>
-        
-        {/* Social Media Icons */}
-        <div className="flex space-x-4">
-          <motion.a
-            href="https://linkedin.com/in/bash-john-220a87308"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1 }}
-            className="text-secondary-500 hover:text-secondary-400 transition duration-300"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin size={24} />
-          </motion.a>
-          <motion.a
-            href="https://github.com/devBash24"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1 }}
-            className="text-secondary-500 hover:text-secondary-400 transition duration-300"
-            aria-label="GitHub"
-          >
-            <FaGithub size={24} />
-          </motion.a>
-          <motion.a
-            href="https://twitter.com/your-profile"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1 }}
-            className="text-secondary-500 hover:text-secondary-400 transition duration-300"
-            aria-label="Twitter"
-          >
-            <FaTwitter size={24} />
-          </motion.a>
-          <motion.a
-            href="mailto:your-email@example.com"
-            whileHover={{ scale: 1.1 }}
-            className="text-secondary-500 hover:text-secondary-400 transition duration-300"
-            aria-label="Email"
-          >
-            <FaEnvelope size={24} />
-          </motion.a>
-        </div>
-      </div>
-      
-      {/* Copyright */}
-      <div className="mt-8 text-center text-xs lg:text-sm text-gray-500">
-        © {t("footer.copyright")}
+        </motion.div>
       </div>
     </footer>
   );
