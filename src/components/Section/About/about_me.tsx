@@ -9,7 +9,7 @@ const AboutMe = () => {
       className="bg-surface rounded-2xl p-6 md:p-8"
     >
       <div className="relative mb-8 overflow-hidden rounded-xl">
-        <motion.img
+        {/* <motion.img
           initial={{ scale: 1.2 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
@@ -17,8 +17,10 @@ const AboutMe = () => {
           src="/assets/self-image.png"
           alt="About Me"
           className="w-full h-[300px] md:h-[400px] object-cover"
-        />
+        /> */}
+        <motion.h1 initial={{ scale: 1.2 }} whileInView={{ scale: 1 }} className="w-full h-[300px] md:h-[400px] inset-0 flex items-center justify-center text-white text-2xl font-bold">Image Coming soon</motion.h1>
         <div className="absolute inset-0 bg-accent/10" />
+
       </div>
 
       <motion.div

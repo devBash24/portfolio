@@ -55,7 +55,7 @@ const Hero = () => {
               className="flex gap-4 pt-4"
             >
               <a
-                href="#projects"
+                href="#project"
                 className="bg-accent hover:bg-opacity-90 text-white px-8 py-3 rounded-lg shadow-cta transition-all duration-300 font-roboto"
               >
                 {t("hero.cta")}
@@ -79,11 +79,12 @@ const Hero = () => {
             <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] mx-auto">
               <div className="absolute inset-0 bg-accent/10 rounded-2xl transform rotate-6" />
               <div className="absolute inset-0 bg-surface rounded-2xl transform -rotate-3" />
-              <img
+              <h1 className="w-full h-full z-10  inset-0 flex items-center justify-center text-white text-2xl font-bold">Image Coming soon</h1>
+              {/* <img
                 src="/assets/self-image.png"
                 alt={t("hero.imageAlt", "Professional portrait")}
                 className="relative z-10 w-full h-full object-cover rounded-2xl bg-surface"
-              />
+              /> */}
             </div>
           </motion.div>
         </div>
